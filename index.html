@@ -1,24 +1,32 @@
-<!DOCTYPE HTML>
-<html lang="ja">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <title>PhotoPoster</title>
-
-<!--jquery mobileを組み込むためのコード-->
-<link rel="stylesheet" href="css/theme_c.css" />
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-
-<!--スマートフォンで表示する際に文字が小さくならないようにするためのコード-->
-<meta name="viewport" content="initial-scale=1.0, user-scale=no" />
 
 </head>
 
 <body>
+<header>
+<h1>PhotoPoster</h1>
+<header>
 
+<div id="content">
+<form action="sample23.php" method="post" enctype="multipart/form-data">
+<dl>
+<dt>写真</dt>
+<dd>
+<input name="my_img" type="file" id="my_img" size="50" /></dd>
+</dl>
+<input type="submit" value="送信する" />
+</form>
+</div>
+
+<footer>
+<h4>&copy;YESLab,Nagoya University</h4>
+</footer>
+
+</div>
 </body>
-
 </html>
