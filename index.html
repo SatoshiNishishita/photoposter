@@ -5,25 +5,43 @@
 
 <title>PhotoPoster</title>
 
+<!--Bootstrap-->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
+
 <header>
-<h1>PhotoPoster</h1>
+<h1 class="text-center">PhotoPoster</h1>
 <header>
 
-<div id="content">
-<form action="sample23.php" method="post" enctype="multipart/form-data">
-<dl>
-<dt>写真</dt>
-<dd>
-<input name="my_img" type="file" id="my_img" size="50" /></dd>
-</dl>
-<input type="submit" value="送信する" />
-</form>
+<div class="container">
+
+	<ul class="nav nav-tabs nav-justified">
+		<li class="active"><a href="#">Home</a></li>
+		<li><a href="#">更新</a></li>
+		<li><a href="#">マップ</a></li>
+	</ul>
+
+	<div>
+		<img src="./user_img/imgres.jpg"  width="100%" class="img-responsive">
+	</div>
+		
+	<form action="inputdo.php" method="post" enctype="multipart/form-data">
+		<div class="form-group">	
+			<label for="name">写真を投稿する</label>
+			<input name="my_img" type="file" id="my_img" class="form-control" />
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary btn-block" >写真を投稿する</button>
+		</div>
+	</form>
+
 </div>
 
-<footer>
+<footer class="text-center">
 <h4>&copy;YESLab,Nagoya University</h4>
 </footer>
 

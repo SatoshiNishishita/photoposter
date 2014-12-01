@@ -23,23 +23,27 @@ if ($ext == '.gif' || $ext == '.jpg' || $ext == '.png') {
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <title>PhotoPoster</title>
+
+<!--Bootstrap-->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
 
 <header>
-<h1>PhotoPoster</h1>
+<h1 class="text-center">PhotoPoster</h1>
 </header>
 
 <div id="content">
-<!--投稿した写真を表示する-->
-<?php print('<img src="' . $filePath . '" />'); ?>
+	<!--投稿した写真を表示する-->
+	<?php print('<img src="' . $filePath . '" />'); ?>
 </div>
 
 <footer>
-		<h4>&copy;YESLab,Nagoya University</h4>
+	<h4 class="text-center">&copy;YESLab,Nagoya University</h4>
 </footer>
 
-</div>
 </body>
 </html>
