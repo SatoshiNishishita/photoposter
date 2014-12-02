@@ -51,12 +51,10 @@ $recordSet = mysql_query("SELECT * FROM photoposter_post ORDER BY id DESC", $db)
 		<li><a href="#">マップ</a></li>
 	</ul>
 
-	<div>
-		<div>
+	<ui class="slider">
 			<?php $data = mysql_fetch_assoc($recordSet);?>
-			<img src="<?php echo $data['photo_id'];?>" width="100%" class="img-responsive">
-		</div>
-	</div>
+			<li><img src="<?php echo $data['photo_id'];?>" width="100%" class="img-responsive"></li>
+	</ui>
 	
 	<br />
 	
@@ -88,8 +86,8 @@ $recordSet = mysql_query("SELECT * FROM photoposter_post ORDER BY id DESC", $db)
 
 
 <!--javascript-->
-<script>
-</script>
+
+
 
 
 </body>
