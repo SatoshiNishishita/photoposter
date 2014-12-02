@@ -2,6 +2,16 @@
 ini_set('display_errors', 'on');
 ?>
 
+<?php
+//DBに接続
+require('dbconnect.php');
+// MySQLとの接続をオープンにする
+$db = mysql_connect($DBSERVER, $DBUSER, $DBPASSWORD) or die(mysql_error());
+// データをUTF8で受け取る
+mysql_query("SET NAMES UTF8");
+// データベースを選択する
+$selectdb = mysql_select_db($DBNAME, $db);
+?>
 
 <?php
 
@@ -15,6 +25,14 @@ if ($ext == '.gif' || $ext == '.jpg' || $ext == '.png') {
 } else {
 	print('※拡張子が.gif, .jpg, .pngのいずれかのファイルをアップロードしてください');
 }
+
+//index.phpのフォームから送られて来た情報を変数に代入する
+$comment = $_POST['comment'];
+
+//送信されたコメントと写真の情報をデータベースに保存する
+$data_insert = ("INSERT INTO photoposter_post(photo_id,comment) VALUES('$filePath', '$comment')");
+mysql_query($data_insert,$db);
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

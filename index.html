@@ -30,13 +30,21 @@
 	</div>
 		
 	<form action="inputdo.php" method="post" enctype="multipart/form-data">
+		
 		<div class="form-group">	
 			<label for="name">写真を投稿する</label>
 			<input name="my_img" type="file" id="my_img" class="form-control" />
 		</div>
+		
+		<div class="form-group">
+			<label for="comment">コメントを投稿する</label>
+			<textarea name="comment" cols="50" rows="5" class="form-control"></textarea>
+		</div>
+		
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary btn-block" >写真を投稿する</button>
 		</div>
+	
 	</form>
 
 </div>
