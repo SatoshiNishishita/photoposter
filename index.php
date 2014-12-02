@@ -1,3 +1,29 @@
+<?php
+
+//photoposterのトップ画面のphpファイル
+
+
+//DBに接続
+require('dbconnect.php');
+
+// MySQLとの接続をオープンにする
+$db = mysql_connect($DBSERVER, $DBUSER, $DBPASSWORD) or die(mysql_error());
+
+// データをUTF8で受け取る
+mysql_query("SET NAMES UTF8");
+
+// データベースを選択する
+$selectdb = mysql_select_db($DBNAME, $db);
+
+?>
+
+<?php
+//データベースのphotoposter_postテーブルから全ての情報を取り出す。
+$recordSet = mysql_query("SELECT * FROM photoposter_post ORDER BY id DESC", $db);
+
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,9 +52,14 @@
 	</ul>
 
 	<div>
-		<img src="./user_img/imgres.jpg"  width="100%" class="img-responsive">
+		<div>
+			<?php $data = mysql_fetch_assoc($recordSet);?>
+			<img src="<?php echo $data['photo_id'];?>" width="100%" class="img-responsive">
+		</div>
 	</div>
-		
+	
+	<br />
+	
 	<form action="inputdo.php" method="post" enctype="multipart/form-data">
 		
 		<div class="form-group">	
@@ -54,5 +85,12 @@
 </footer>
 
 </div>
+
+
+<!--javascript-->
+<script>
+</script>
+
+
 </body>
 </html>
