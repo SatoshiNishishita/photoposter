@@ -35,6 +35,29 @@ $recordSet = mysql_query("SELECT * FROM photoposter_post ORDER BY id DESC", $db)
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!--カルーセルスライダーslick-->
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script>
+	$(function(){
+		$('.slick').slick({
+			dots : true,
+		});
+	});
+</script>
+<style>
+	.hoge {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.hoge img {
+		margin: 0 auto;
+	}
+	.slick-prev:before, .slick-next:before {
+		color: #0080FF;
+	}
+</style>
 </head>
 
 <body>
@@ -51,10 +74,16 @@ $recordSet = mysql_query("SELECT * FROM photoposter_post ORDER BY id DESC", $db)
 		<li><a href="#">マップ</a></li>
 	</ul>
 
-	<ui class="slider">
-			<?php $data = mysql_fetch_assoc($recordSet);?>
-			<li><img src="<?php echo $data['photo_id'];?>" width="100%" class="img-responsive"></li>
-	</ui>
+	<div class="slick">
+		<!--<div><img src="#" width="100%" class="img-responsive"</div>-->
+		<?php
+			while($data = mysql_fetch_assoc($recordSet)){
+		?>
+			<div><img src="<?php echo $data['photo_id'];?>" width="100%" class="img-responsive"></div>
+		<?php
+			}
+		?>	
+	</div>
 	
 	<br />
 	

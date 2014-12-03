@@ -54,13 +54,7 @@ mysql_query($data_insert,$db);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript">
-<script type="text/javascript" src="js/jquery.bxSlider.min.js">
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.slider').bxSlider();
-	});
-</script>
+
 
 
 </head>
