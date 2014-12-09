@@ -71,13 +71,11 @@ $recordSet = mysql_query("SELECT * FROM photoposter_post ORDER BY id DESC", $db)
 <div class="container">
 
 	<ul class="nav nav-tabs nav-justified">
-		<li class="active"><a href="#">Home</a></li>
-		<li><a href="#">更新</a></li>
-		<li><a href="#">マップ</a></li>
+		<li class="active"><a href="../photoposter/">Home</a></li>
+		<li><a href="javascript:location.reload(true);" data-role="button" data-icon="refresh">更新</a></li>
 	</ul>
 
 	<div class="slick">
-		<!--<div><img src="#" width="100%" class="img-responsive"</div>-->
 		<?php
 			while($data = mysql_fetch_assoc($recordSet)){
 		?>

@@ -22,12 +22,23 @@ $selectdb = mysql_select_db($DBNAME, $db);
 
 <?php
 
+//DBのphotoposter_postテーブルから一番数の大きいプライマリーキーの情報を取り出す。
+//この数字に+1を足してファイルパスに付け足して撮影された写真のファイル名の差別化をする
+$recordSet = mysql_query("SELECT id FROM photoposter_post ORDER BY id DESC LIMIT 1",$db);
+$data = mysql_fetch_assoc($recordSet);
+//テーブル内のプライマリーキーの一番大きい値を変数に代入して1足す
+$insert_data = $data['id'];
+$path_data = $insert_data + 1;
+
+
+
 //ファイルのアップロードの処理をする
+//ファイル名はimage
 $file = $_FILES['my_img'];
 
 $ext = substr($file['name'], -4);
 if ($ext == '.gif' || $ext == '.jpg' || $ext == '.png') {
-	$filePath = './user_img/' . $file['name'];
+	$filePath = './user_img/' . $path_data.$file['name'];
 	move_uploaded_file($file['tmp_name'], $filePath);
 } else {
 	print('※拡張子が.gif, .jpg, .pngのいずれかのファイルをアップロードしてください');
@@ -68,16 +79,15 @@ mysql_query($data_insert,$db);
 <div id="container">
 
 	<ul class="nav nav-tabs nav-justified">
-		<li><a href="#">Home</a></li>
-		<li><a href="#">更新</a></li>
-		<li><a href="#">マップ</a></li>
+		<li><a href="../photoposter/">Home</a></li>
+		<li><a href="javascript:location.reload(true);" data-role="button" data-icon="refresh">更新</a></li>
 	</ul>
 
 	<!--投稿した写真を表示する-->
 	<p>以下の情報を送信しました</p>
 	<img src="<?php echo $filePath;?>" width="100%" class="img-responsive">
 	<?php print $comment; ?>
-	<li><a href="index.php">トップに戻る</a></li>
+	<li><a href="../photoposter/">Homeへ戻る</a></li>
 </div>
 
 <footer>
