@@ -43,6 +43,8 @@ $recordSet = mysql_query("SELECT * FROM photoposter_post ORDER BY id DESC", $db)
 	$(function(){
 		$('.slick').slick({
 			dots : true,
+			autoplay:true,
+			autoplaySpeed:2000,
 		});
 	});
 </script>
