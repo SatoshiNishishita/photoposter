@@ -79,7 +79,10 @@ $recordSet = mysql_query("SELECT * FROM photoposter_post ORDER BY id DESC", $db)
 		<?php
 			while($data = mysql_fetch_assoc($recordSet)){
 		?>
-			<div><img src="<?php echo $data['photo_id'];?>" width="100%" class="img-responsive"></div>
+			<div>
+				<img src="<?php echo $data['photo_id'];?>" width="100%" class="img-responsive">
+				<label><?php echo $data['comment']; ?></label>
+			</div>
 		<?php
 			}
 		?>	
