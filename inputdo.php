@@ -87,7 +87,7 @@ mysql_query($data_insert,$db);
 	<p>以下の情報を送信しました</p>
 	<img src="<?php echo $filePath;?>" width="100%" class="img-responsive">
 	<?php print $comment; ?>
-	<li><a href="../photoposter/">Homeへ戻る</a></li>
+	<a class="btn btn-primary btn-block"href="../photoposter/">Homeへ戻る</a>
 </div>
 
 <footer>
